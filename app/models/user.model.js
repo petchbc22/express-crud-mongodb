@@ -1,12 +1,8 @@
 module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
-      title: String,
-      description:String,
-      location:{
-        lat: String,
-        lng: String
-      },
+      name: String,
+      email:String,
       published:Boolean
     },
     { timestamps: true }
@@ -16,11 +12,10 @@ module.exports = mongoose => {
   
     const {  _id, ...object } = this.toObject();
     object.id = _id;
-    console.log('obj',object)
 
     return object;
   });
 
-  const Tutorial = mongoose.model("tutorial", schema);
-  return Tutorial;
+  const Users = mongoose.model("users", schema);
+  return Users;
 };
